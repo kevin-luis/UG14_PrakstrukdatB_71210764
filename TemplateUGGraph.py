@@ -50,8 +50,9 @@ class Graph:
         listEdge = set()
         for key in self._data.keys():
             item = list(self._data[f'{key}'][0])
-            if key+item[0] not in listEdge and item[0]+key not in listEdge:
-                listEdge.add(key+item[0])
+            for i in range(len(item)):
+                if key+item[i] not in listEdge and item[i]+key not in listEdge:
+                    listEdge.add(key+item[i])
         
         for item in listEdge:
             print(item, end=" ")
