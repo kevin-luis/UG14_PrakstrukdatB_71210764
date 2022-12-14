@@ -62,8 +62,18 @@ class Graph:
     # untuk pembacaan traversing bfs graph
     def bfs(self, node):
         # tulis kode Anda di sini
-
-        print("\n")
+        visited = []
+        queue = []
+        visited.append(node)
+        queue.append(node)
+        print('Traversing BFS =',end=' ')
+        while queue:
+            q = queue.pop(0) 
+            print (q, end = " ") 
+            for neighbour in self._data[q][0]:
+                if neighbour not in visited:
+                    visited.append(neighbour)
+                    queue.append(neighbour)
 
 
 
@@ -88,3 +98,4 @@ graph.addEdge('g', 'f')
 
 graph.vertex()
 graph.edge()
+graph.bfs('h')
